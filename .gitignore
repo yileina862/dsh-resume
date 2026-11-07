@@ -1,0 +1,23 @@
+# dsh-resume 随包分发的第三方依赖必须进版本控制。
+#
+# dsh 的插件安装走 link:/file: 协议，而这两种协议都不安装被链接包的依赖；
+# Node 解析符号链接时按真实路径向上查找，profile 的 hoisted node_modules
+# 对它不可见。把 @deepseek-ai/{schemastery,cosmokit} 放在包内，是让
+# `import '@deepseek-ai/schemastery'` 在任何安装方式下都能解析的最小方案。
+#
+# 逐包版本、来源与许可证见 vendor-NOTICE.md。
+
+node_modules/*
+!node_modules/@deepseek-ai/
+!node_modules/@deepseek-ai/**
+
+# 运行时产物与编辑器临时物
+*.log
+*.tgz
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# 不上传第三方依赖许可证清单
+vendor-NOTICE.md

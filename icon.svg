@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="dsh-resume">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#1f2937"/>
+  <g fill="none" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 38h10"/>
+    <path d="M28 38l-5-5"/>
+    <path d="M28 38l-5 5"/>
+    <path d="M36 22h10"/>
+    <path d="M36 32h10"/>
+    <path d="M36 42h10"/>
+  </g>
+</svg>

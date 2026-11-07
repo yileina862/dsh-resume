@@ -1,0 +1,18 @@
+# dsh-resume bundle patch
+#
+# 单包单行：本行同时是 Host 行与浏览器 roster 行。
+#   - Host 半侧 = package.json main → index.js（断点派生 + 寄存器 + 命令 + 系统提示段）
+#   - Client 半侧 = package.json exports["./client"] → client.js，由 dsh.client 声明
+#     成 /plugins 下的浏览器 bundle（dsh-client-modules 扫描 Loader 条目组启动图）。
+# 不覆盖、不禁用任何既有条目，只 insert 自己；config 默认值与 index.js 的 Config 一致。
+
+- insert:
+    - id: dsh-resume
+      name: dsh-resume
+      inject: [agents, sessions, systemPrompt]
+      config:
+        draftSentinel: "⟦dsh-resume⟧"
+        maxOpenCalls: 5
+        systemSection: true
+        autoResumeOnRestart: true
+        rearmGoal: true

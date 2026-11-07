@@ -1,0 +1,79 @@
+{
+  "name": "dsh-resume",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Resume after interruption for DSH: continue from the exact breakpoint without restating the request, and — when the host restarted mid-turn — pick the work back up on its own instead of asking the user what to do next.",
+  "author": "yileina",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "vendor-NOTICE.md",
+    "verify/*.mjs",
+    "node_modules/@deepseek-ai/**"
+  ],
+  "scripts": {
+    "verify": "node verify/checks.mjs && node verify/host-stub.mjs && node verify/client-bundle.mjs",
+    "verify:checks": "node verify/checks.mjs",
+    "verify:host": "node verify/host-stub.mjs",
+    "verify:client": "node verify/client-bundle.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "3.18.5"
+  },
+  "bundledDependencies": [
+    "@deepseek-ai/schemastery",
+    "@deepseek-ai/cosmokit"
+  ],
+  "engines": {
+    "node": ">=22.5"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "agent",
+    "resume",
+    "interruption",
+    "checkpoint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<owner>/dsh-resume.git"
+  },
+  "homepage": "https://github.com/<owner>/dsh-resume#readme",
+  "bugs": {
+    "url": "https://github.com/<owner>/dsh-resume/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "platform": "web"
+    },
+    "install": {
+      "preferred": "tarball",
+      "tarball": "https://codeload.github.com/<owner>/dsh-resume/tar.gz/refs/heads/main",
+      "zip": "https://codeload.github.com/<owner>/dsh-resume/zip/refs/heads/main",
+      "git": "https://github.com/<owner>/dsh-resume.git"
+    }
+  },
+  "icon": "./icon.svg",
+  "license": "MIT"
+}
